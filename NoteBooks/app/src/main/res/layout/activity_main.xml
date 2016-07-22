@@ -29,7 +29,7 @@
 
             <Button
                 android:id="@+id/zhuce_Btn"
-                android:layout_width="wrap_content"
+                android:layout_width="150sp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/buttonshape"
                 android:text="新用户一键使用" />
@@ -41,7 +41,7 @@
 
             <Button
                 android:id="@+id/login_Btn"
-                android:layout_width="wrap_content"
+                android:layout_width="150sp"
                 android:layout_height="wrap_content"
                 android:text="已有用户登录"
                 android:background="@drawable/buttonshape2"
