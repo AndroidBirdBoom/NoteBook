@@ -1,6 +1,6 @@
 /**
- *  Author :Wang
- *  功能：数据库管理类的构建
+ * Author :Wang
+ * 功能：数据库管理类的构建
  */
 package com.example.jack.notebooks;
 
@@ -18,34 +18,29 @@ public class NotesDB extends SQLiteOpenHelper {
     public static final String CONTENT = "content";
     public static final String ID = "_id";
     public static final String TIME = "time";
+    public static final String VIDEO = "video";
+    public static final String PATH = "path";
+    public static final String NAME = "name";
+    public static final String MUSIC = "music";
 
-    public static final String TABLE_NAME_LOGIN = "lagin";
-    public static final String IID = "_iid";
-    public static final String ACCOUNT = "account";
-    public static final String TABLE_MIMA = "password";
-
-    private Context mContext;
     public NotesDB(Context context) {
-        super(context, "notes.db", null, 2);
-        mContext = context;
+        super(context, "Note.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE "+ TABLE_NAME + "(" + ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + CONTENT
-                + " TEXT NOT NULL," + TIME +" TEXT NOT NULL)");
-
-        sqLiteDatabase.execSQL("CREATE TABLE "+ TABLE_NAME_LOGIN + "(" + IID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT
-                + " TEXT NOT NULL," + TABLE_MIMA + " TEXT NOT NULL)");
-        Toast.makeText(mContext,"success", Toast.LENGTH_SHORT).show();
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_NAME + "("
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + CONTENT + " TEXT NOT NULL,"
+                + TIME + " TEXT NOT NULL,"
+                + VIDEO + " TEXT,"
+                + NAME + " TEXT,"
+                + MUSIC + " TEXT,"
+                + PATH + " TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("drop table if exists" + TABLE_NAME);
-        sqLiteDatabase.execSQL("drop table if exists" + TABLE_NAME_LOGIN);
-        onCreate(sqLiteDatabase);
+
     }
 }

@@ -5,7 +5,9 @@
 package com.example.jack.notebooks;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,8 @@ import android.widget.Button;
  */
 public class Login extends Activity implements View.OnClickListener {
 
-    Button newButton,oldButton;
+    private Button newButton,oldButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +27,13 @@ public class Login extends Activity implements View.OnClickListener {
         oldButton = (Button) findViewById(R.id.login_Btn);
         newButton.setOnClickListener(this);
         oldButton.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.zhuce_Btn:
-
                 break;
             case R.id.login_Btn:
                 Intent loginActivity = new Intent(Login.this,mLogin.class);
